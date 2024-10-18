@@ -1,0 +1,64 @@
+createUserInputType
+{
+    userName:string
+    isFromConcurrent:bool
+    diabetType:userDiabetEnumType
+    dickLength:int
+    dickLength:double
+    birthDate:dateTime
+    dateToday:todayDateTime
+    anotherUserInputType?:createUserInputType
+}
+
+createUserOutputType
+{
+    discountSize:double
+    userKind:userKindEnumType
+    keyBoardKindToSell:keyBoardKindToSellEnumType
+}
+
+keyBoardKindToSellEnumType
+{
+    expansive
+    chip
+}
+
+userKindEnumType
+{
+    regular
+    premium
+    ultraPremium
+}
+
+userDiabetEnumType
+{
+    I
+    II
+    III
+    IV
+}
+
+//TODO: Specifications
+//TODO: Validators
+
+createUser:
+    switch isFromConcurrent:
+        false: 
+            with userName.length > 20: 
+                discountSize:60
+                userKind: premium
+                keyBoardKindToSell: chip
+            with dickLength > 30:
+                discountSize:100
+                userKind:ultraPremium
+                keyBoardKindToSell:expansive
+        default:
+            discountSize:0
+            userKind:regular
+            keyBoardKindToSell:chip
+    with birthDate = dateToday: 
+        discountSize:0
+        userKind:regular
+        keyBoardKindToSell:chip
+    
+    

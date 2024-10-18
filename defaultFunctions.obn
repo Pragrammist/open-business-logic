@@ -1,0 +1,25 @@
+array:
+    length
+    unique
+    skip
+    take
+    elementAt
+    first
+    select
+    where
+    forEach
+    any
+    all
+    etc.
+
+
+string:
+    length
+    trim
+    trimEnd
+    trimStart
+    replace
+    contains
+
+
+
